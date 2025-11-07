@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+
+    <style>
+        *,*::after,*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #f0f0f0;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        input {
+            font-size: 18px;
+            padding: 10px 15px;
+            border: 1px solid #33333333;
+            width: 200px;
+            margin-right: 5px;
+            outline: none;
+        }
+        
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid #33333334;
+        }
+        
+        .approve {
+            font-size: 38px;
+            margin-top: 30px;
+            min-height: 60px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="nombre" placeholder="Escribe tu nombre...">
+        <button onclick="mostrarSaludo()">Enviar</button>
+        <div class="approve" id="approve"></div>
+    </div>
+
+    <script>
+        function mostrarSaludo() {
+    const nombre = document.getElementById('nombre').value.trim();
+    const saludo = document.getElementById('approve');
+            
+            if (nombre) {
+                saludo.textContent = 'Hola, ' + nombre.toUpperCase();
+                document.getElementById('nombre').value = '';
+            }
+        }
+
+        document.getElementById('nombre').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                mostrarSaludo();
+            }
+        });
+    </script>
+
+</body>
+</html>
